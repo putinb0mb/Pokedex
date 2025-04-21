@@ -53,7 +53,7 @@ A stylish, responsive Pokédex web app built using **React**, letting users expl
   http://localhost:3000
 
 #Screenshots
-![image alt]()
+![image alt](https://github.com/putinb0mb/Pokedex/blob/c19523ff1b2ae4cfc5cd338d32e056ac60f4c876/1.jpg.png)
 ![image alt]()
 ![image alt]()
 
