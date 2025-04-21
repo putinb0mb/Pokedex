@@ -1,0 +1,244 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #ff4d4d, #ff1a1a);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 100px; /* This is new */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+nav {
+  background-color: #000;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+  font-size: 20px;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  padding: 0 10px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  border-color: white;
+}
+
+
+.pokedex-frame {
+  background: #ff6666;
+  border: 5px solid #cc0000;
+  border-radius: 50% 50% 30% 30% / 40% 40% 20% 20%;
+  width: 80vw;
+  max-width: 600px;
+  height: 500px;
+  padding: 20px;
+  box-shadow: 0 0 40px #ff3333, inset 0 0 20px #ffcccc;
+  position: relative;
+  overflow: visible; /* Change this to visible to allow overflow */
+}
+
+/* Optional: add 'antenna' on top */
+.antenna {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid #ff6666;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1; /* Ensure antenna is on top */
+}
+
+/* Add wings/arms */
+.arm {
+  position: absolute;
+  width: 80px;
+  height: 20px;
+  background: #ff6666;
+  border: 3px solid #cc0000;
+  border-radius: 10px;
+  top: 150px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1; /* Ensure arms are on top */
+}
+
+.arm.left {
+  left: -60px;
+  transform: rotate(-30deg);
+}
+
+.arm.right {
+  right: -60px;
+  transform: rotate(30deg);
+}
+
+.pokedex-frame:hover .arm {
+  transform: scale(1.1) rotate(0deg); /* Slight scaling effect */
+}
+
+.screen {
+  background: radial-gradient(circle at center, #66ccff, #3399ff);
+  border: 4px solid #003366;
+  border-radius: 70px;
+  width: 80%;
+  height: 80%;
+  margin: 60px auto 0;
+  padding: 20px;
+  box-shadow: inset 0 0 20px #3399ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: glowEffect 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowEffect {
+  0% {
+    box-shadow: inset 0 0 20px #3399ff;
+  }
+  100% {
+    box-shadow: inset 0 0 40px #3399ff;
+  }
+}
+
+.eye {
+  width: 15px;
+  height: 15px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+}
+
+.eye.left {
+  left: 70px;
+}
+
+.eye.right {
+  right: 70px;
+}
+
+.pokemon-card {
+  width: 150px;
+  height: 200px;
+  background: #ffcc00;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+.pokemon-card:hover {
+  transform: rotateY(180deg);
+}
+
+.pokemon-card .front,
+.pokemon-card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.pokemon-card .back {
+  background: #fff;
+  transform: rotateY(180deg);
+}
+
+.pokemon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.pokemon-option {
+  background: white;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.3s;
+  text-align: center;
+  min-width: 100px;
+}
+
+.pokemon-option:hover {
+  background: #eeeeee;
+  transform: scale(1.05);
+}
+
+/* Make sure the screen fits well inside the frame */
+.screen {
+  overflow: hidden;
+  padding: 10px;
+}
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-rows: repeat(5, 1fr);    /* 5 equal rows */
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  padding: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.pokemon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+  width: 100px;
+  height: 60px;
+  box-sizing: border-box;
+}
+
+.pokemon-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
