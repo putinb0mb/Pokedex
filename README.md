@@ -55,6 +55,6 @@ A stylish, responsive Pokédex web app built using **React**, letting users expl
 #Screenshots
 ![image alt](https://github.com/putinb0mb/Pokedex/blob/c19523ff1b2ae4cfc5cd338d32e056ac60f4c876/1.jpg.png)
 ![image alt](https://github.com/putinb0mb/Pokedex/blob/62269a2756ade05621730ec9036ea2a36f9a2eaa/2.jpg.png)
-![image alt]()
+![image alt](https://github.com/putinb0mb/Pokedex/blob/34dc293bcca05b6a9418e6ba428e3319301bca15/3.jpg.png)
 
 
